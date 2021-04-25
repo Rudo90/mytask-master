@@ -7,7 +7,6 @@ import am.itspace.taskmaster.entities.Project;
 import am.itspace.taskmaster.entities.Task;
 import am.itspace.taskmaster.entities.User;
 import org.mapstruct.Mapping;
-import org.springframework.data.domain.Page;
 
 import java.util.List;
 

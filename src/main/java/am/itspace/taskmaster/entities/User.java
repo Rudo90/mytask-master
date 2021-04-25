@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -31,7 +30,15 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private Type type;
 
+    @JsonIgnore
+    public String getPassword() {
+        return password;
+    }
 
+    @JsonProperty
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
 
 }

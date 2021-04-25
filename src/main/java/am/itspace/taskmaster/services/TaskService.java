@@ -3,6 +3,7 @@ package am.itspace.taskmaster.services;
 import am.itspace.taskmaster.dtos.TaskDto;
 import am.itspace.taskmaster.entities.Status;
 import am.itspace.taskmaster.entities.Task;
+import am.itspace.taskmaster.entities.User;
 import am.itspace.taskmaster.mappers.MyMapper;
 import am.itspace.taskmaster.repositories.TaskRepo;
 import lombok.RequiredArgsConstructor;
@@ -76,6 +77,5 @@ public class TaskService {
             taskRepo.delete(taskRepo.getOne(id));
         }
     }
-
 
 }
