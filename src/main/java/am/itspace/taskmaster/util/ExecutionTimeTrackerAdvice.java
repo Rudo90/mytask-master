@@ -1,6 +1,5 @@
 package am.itspace.taskmaster.util;
 
-import am.itspace.taskmaster.entities.Task;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

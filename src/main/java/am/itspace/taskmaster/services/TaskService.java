@@ -3,9 +3,9 @@ package am.itspace.taskmaster.services;
 import am.itspace.taskmaster.dtos.TaskDto;
 import am.itspace.taskmaster.entities.Status;
 import am.itspace.taskmaster.entities.Task;
-import am.itspace.taskmaster.entities.User;
 import am.itspace.taskmaster.mappers.MyMapper;
 import am.itspace.taskmaster.repositories.TaskRepo;
+import am.itspace.taskmaster.util.TrackExecutionTime;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,6 +22,7 @@ public class TaskService {
     private final TaskRepo taskRepo;
     private final MyMapper myMapper;
 
+    @TrackExecutionTime
     public void addTask(Task task){
         if(task != null && taskRepo.findAll().isEmpty()){
             taskRepo.save(task);
@@ -53,9 +54,11 @@ public class TaskService {
         return null;
     }
 
+    @TrackExecutionTime
     public void updateTask(Integer id, Task task){
         if (id != null && taskRepo.findById(id).isPresent()){
-            if(taskRepo.getOne(id).getId() == id){
+            Task existTask = taskRepo.getOne(id);
+            if(existTask.getId() == id){
                 task.setId(id);
                 taskRepo.save(task);
             }
