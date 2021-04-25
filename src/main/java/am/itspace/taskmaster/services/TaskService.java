@@ -22,7 +22,7 @@ public class TaskService {
     private final TaskRepo taskRepo;
     private final MyMapper myMapper;
 
-    @TrackExecutionTime
+    
     public void addTask(Task task){
         if(task != null && taskRepo.findAll().isEmpty()){
             taskRepo.save(task);
@@ -54,7 +54,7 @@ public class TaskService {
         return null;
     }
 
-    @TrackExecutionTime
+   
     public void updateTask(Integer id, Task task){
         if (id != null && taskRepo.findById(id).isPresent()){
             Task existTask = taskRepo.getOne(id);
