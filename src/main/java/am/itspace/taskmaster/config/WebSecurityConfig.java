@@ -43,6 +43,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/tasks/all/{sortBy}/{pageNo}").hasAnyAuthority("ADMIN", "EMPLOYEE")
                 .antMatchers(HttpMethod.GET, "/users/all").hasAnyAuthority("ADMIN", "EMPLOYEE")
                 .antMatchers(HttpMethod.GET, "/tasks/{status}").hasAnyAuthority("ADMIN", "EMPLOYEE")
+                .antMatchers(HttpMethod.POST, "/logs").hasAuthority("EMPLOYEE")
+                .antMatchers(HttpMethod.PUT, "/logs/{id}").hasAuthority("EMPLOYEE")
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
