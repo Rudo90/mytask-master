@@ -36,9 +36,20 @@ public class TaskService {
         }
     }
 
-    public Page<Task> getAllTasks(int pageNumber, int pageSize, String sortBy){
-        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, Sort.by(sortBy));
-        return this.taskRepo.findAll(pageable);
+    public Page<Task> getAllTasks(int pageNumber, int pageSize, String sortBy) {
+        if (sortBy.equals("title")) {
+            Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(sortBy));
+            return taskRepo.findAll(pageable);
+        }
+        if (sortBy.equals("date")) {
+            Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(sortBy));
+                return taskRepo.findAll(pageable);
+        }
+        if (sortBy.equals("deadline")) {
+            Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(sortBy));
+                return taskRepo.findAll(pageable);
+        }
+        return null;
     }
 
     public void updateTask(Integer id, Task task){
