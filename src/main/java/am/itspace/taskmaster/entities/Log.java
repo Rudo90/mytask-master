@@ -21,9 +21,9 @@ public class Log {
     @OneToOne (cascade = CascadeType.MERGE)
     private Task task;
     @Column(name = "start_date_time")
-    private Date startDateTime;
+    private long startDateTime;
     @Column(name = "end_date_time")
-    private Date endDateTime;
+    private long endDateTime;
     @OneToOne (cascade = CascadeType.MERGE)
     private User user;
 

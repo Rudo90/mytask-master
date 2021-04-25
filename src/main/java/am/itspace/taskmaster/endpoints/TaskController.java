@@ -6,8 +6,6 @@ import am.itspace.taskmaster.entities.Task;
 import am.itspace.taskmaster.mappers.MyMapper;
 import am.itspace.taskmaster.services.TaskService;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +20,6 @@ public class TaskController {
 
     private final TaskService taskService;
     private final MyMapper mapper;
-
-    Logger logger = LoggerFactory.getLogger(Task.class);
 
     @GetMapping("/all/{sortBy}/{pageNo}")
     public List<TaskDto> getAllTasks(@PathVariable("pageNo") int pageNo, @PathVariable("sortBy") String sortBy){
